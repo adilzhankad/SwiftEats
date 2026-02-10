@@ -29,6 +29,20 @@
 		70901FA42F35F6A1006A7205 /* CartStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70901FA32F35F6A1006A7205 /* CartStorage.swift */; };
 		70901FA62F35F6BD006A7205 /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70901FA52F35F6BD006A7205 /* CartViewModel.swift */; };
 		70901FA82F35F6F3006A7205 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70901FA72F35F6F3006A7205 /* CartView.swift */; };
+		70B088BA2F388A3A006F6B11 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088B92F388A3A006F6B11 /* CheckoutView.swift */; };
+		70B088BC2F388A48006F6B11 /* OrdersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088BB2F388A48006F6B11 /* OrdersListView.swift */; };
+		70B088BE2F388A53006F6B11 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088BD2F388A53006F6B11 /* OrderDetailView.swift */; };
+		70B088C02F388A64006F6B11 /* CheckoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088BF2F388A64006F6B11 /* CheckoutViewModel.swift */; };
+		70B088C22F388A70006F6B11 /* OrdersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088C12F388A70006F6B11 /* OrdersViewModel.swift */; };
+		70B088C42F388A7E006F6B11 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088C32F388A7E006F6B11 /* Order.swift */; };
+		70B088C62F388AC5006F6B11 /* OrderStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088C52F388AC5006F6B11 /* OrderStorage.swift */; };
+		70B088C92F38B3B3006F6B11 /* UITheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088C82F38B3B3006F6B11 /* UITheme.swift */; };
+		70B088CC2F38B3D4006F6B11 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088CB2F38B3D4006F6B11 /* SearchBar.swift */; };
+		70B088CE2F38B3E4006F6B11 /* CategoryChipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088CD2F38B3E4006F6B11 /* CategoryChipView.swift */; };
+		70B088D02F38B3EE006F6B11 /* PromoBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088CF2F38B3EE006F6B11 /* PromoBanner.swift */; };
+		70B088D22F38B3F7006F6B11 /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D12F38B3F7006F6B11 /* FoodCard.swift */; };
+		70B088D42F38B401006F6B11 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D32F38B401006F6B11 /* Badge.swift */; };
+		70B088D72F38B419006F6B11 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D62F38B419006F6B11 /* Color+Hex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +88,20 @@
 		70901FA32F35F6A1006A7205 /* CartStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStorage.swift; sourceTree = "<group>"; };
 		70901FA52F35F6BD006A7205 /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		70901FA72F35F6F3006A7205 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		70B088B92F388A3A006F6B11 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		70B088BB2F388A48006F6B11 /* OrdersListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersListView.swift; sourceTree = "<group>"; };
+		70B088BD2F388A53006F6B11 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
+		70B088BF2F388A64006F6B11 /* CheckoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewModel.swift; sourceTree = "<group>"; };
+		70B088C12F388A70006F6B11 /* OrdersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewModel.swift; sourceTree = "<group>"; };
+		70B088C32F388A7E006F6B11 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		70B088C52F388AC5006F6B11 /* OrderStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStorage.swift; sourceTree = "<group>"; };
+		70B088C82F38B3B3006F6B11 /* UITheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITheme.swift; sourceTree = "<group>"; };
+		70B088CB2F38B3D4006F6B11 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		70B088CD2F38B3E4006F6B11 /* CategoryChipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryChipView.swift; sourceTree = "<group>"; };
+		70B088CF2F38B3EE006F6B11 /* PromoBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBanner.swift; sourceTree = "<group>"; };
+		70B088D12F38B3F7006F6B11 /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
+		70B088D32F38B401006F6B11 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
+		70B088D62F38B419006F6B11 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +132,7 @@
 		70901F4B2F35EF78006A7205 = {
 			isa = PBXGroup;
 			children = (
+				70B088C72F38B3A4006F6B11 /* UI */,
 				70901F842F35EFCE006A7205 /* Views */,
 				70901F832F35EFC4006A7205 /* ViewModels */,
 				70901F822F35EFB0006A7205 /* Services */,
@@ -168,6 +197,7 @@
 				70901F872F35F00F006A7205 /* Restaurant.swift */,
 				70901F892F35F02D006A7205 /* APIResponses.swift */,
 				70901FA12F35F67C006A7205 /* CartItem.swift */,
+				70B088C32F388A7E006F6B11 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -178,6 +208,7 @@
 				70901F8B2F35F052006A7205 /* APIError.swift */,
 				70901F912F35F093006A7205 /* APIService.swift */,
 				70901FA32F35F6A1006A7205 /* CartStorage.swift */,
+				70B088C52F388AC5006F6B11 /* OrderStorage.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -187,6 +218,8 @@
 			children = (
 				70901F932F35F0C0006A7205 /* HomeViewModel.swift */,
 				70901FA52F35F6BD006A7205 /* CartViewModel.swift */,
+				70B088BF2F388A64006F6B11 /* CheckoutViewModel.swift */,
+				70B088C12F388A70006F6B11 /* OrdersViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -200,8 +233,41 @@
 				70901F9B2F35F130006A7205 /* DishDetailView.swift */,
 				70901F9F2F35F24F006A7205 /* SettingsView.swift */,
 				70901FA72F35F6F3006A7205 /* CartView.swift */,
+				70B088B92F388A3A006F6B11 /* CheckoutView.swift */,
+				70B088BB2F388A48006F6B11 /* OrdersListView.swift */,
+				70B088BD2F388A53006F6B11 /* OrderDetailView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		70B088C72F38B3A4006F6B11 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				70B088D52F38B40A006F6B11 /* Extensions */,
+				70B088C82F38B3B3006F6B11 /* UITheme.swift */,
+				70B088CA2F38B3C7006F6B11 /* Components */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		70B088CA2F38B3C7006F6B11 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				70B088CB2F38B3D4006F6B11 /* SearchBar.swift */,
+				70B088CD2F38B3E4006F6B11 /* CategoryChipView.swift */,
+				70B088CF2F38B3EE006F6B11 /* PromoBanner.swift */,
+				70B088D12F38B3F7006F6B11 /* FoodCard.swift */,
+				70B088D32F38B401006F6B11 /* Badge.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		70B088D52F38B40A006F6B11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				70B088D62F38B419006F6B11 /* Color+Hex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,23 +400,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70B088C02F388A64006F6B11 /* CheckoutViewModel.swift in Sources */,
+				70B088D42F38B401006F6B11 /* Badge.swift in Sources */,
+				70B088C92F38B3B3006F6B11 /* UITheme.swift in Sources */,
 				70901F882F35F00F006A7205 /* Restaurant.swift in Sources */,
 				70901F8A2F35F02D006A7205 /* APIResponses.swift in Sources */,
 				70901F862F35EFE9006A7205 /* Dish.swift in Sources */,
 				70901FA82F35F6F3006A7205 /* CartView.swift in Sources */,
 				70901F982F35F101006A7205 /* HomeView.swift in Sources */,
 				70901F942F35F0C0006A7205 /* HomeViewModel.swift in Sources */,
+				70B088C22F388A70006F6B11 /* OrdersViewModel.swift in Sources */,
 				70901FA62F35F6BD006A7205 /* CartViewModel.swift in Sources */,
 				70901F962F35F0E5006A7205 /* RootTabView.swift in Sources */,
+				70B088BA2F388A3A006F6B11 /* CheckoutView.swift in Sources */,
 				70901FA02F35F24F006A7205 /* SettingsView.swift in Sources */,
+				70B088CC2F38B3D4006F6B11 /* SearchBar.swift in Sources */,
 				70901F5A2F35EF78006A7205 /* ContentView.swift in Sources */,
 				70901F582F35EF78006A7205 /* SwiftEatsApp.swift in Sources */,
 				70901F922F35F093006A7205 /* APIService.swift in Sources */,
 				70901FA42F35F6A1006A7205 /* CartStorage.swift in Sources */,
+				70B088D22F38B3F7006F6B11 /* FoodCard.swift in Sources */,
+				70B088BE2F388A53006F6B11 /* OrderDetailView.swift in Sources */,
+				70B088D02F38B3EE006F6B11 /* PromoBanner.swift in Sources */,
 				70901F9C2F35F130006A7205 /* DishDetailView.swift in Sources */,
+				70B088BC2F388A48006F6B11 /* OrdersListView.swift in Sources */,
 				70901F8C2F35F052006A7205 /* APIError.swift in Sources */,
+				70B088C42F388A7E006F6B11 /* Order.swift in Sources */,
 				70901FA22F35F67C006A7205 /* CartItem.swift in Sources */,
+				70B088C62F388AC5006F6B11 /* OrderStorage.swift in Sources */,
 				70901F9A2F35F116006A7205 /* RestaurantMenuView.swift in Sources */,
+				70B088CE2F38B3E4006F6B11 /* CategoryChipView.swift in Sources */,
+				70B088D72F38B419006F6B11 /* Color+Hex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

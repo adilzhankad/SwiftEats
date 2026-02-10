@@ -19,7 +19,8 @@ final class CartViewModel: ObservableObject {
     }
 
     func setQuantity(for item: CartItem, quantity: Int) {
-        guard let idx = items.firstIndex(of: item) else { return }
+        guard let idx = items.firstIndex(where: { $0.id == item.id }) else { return }
+
         items[idx].quantity = max(1, quantity)
         persist()
     }

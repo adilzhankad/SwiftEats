@@ -5,7 +5,12 @@ final class APIService {
     private init() {}
 
     func fetchDishes() async throws -> [Dish] {
-        guard let url = URL(string: "https://dummyjson.com/c/a795-9c36-4b7c-84b3") else {
+        var components = URLComponents(string: "https://dummyjson.com/products")
+        components?.queryItems = [
+            URLQueryItem(name: "limit", value: "100")
+        ]
+
+        guard let url = components?.url else {
             throw APIError.invalidURL
         }
 

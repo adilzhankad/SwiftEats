@@ -4,31 +4,35 @@ struct RestaurantMenuView: View {
     let restaurant: Restaurant
     let allDishes: [Dish]
 
-    private var dishes: [Dish] {
-        allDishes.filter { $0.category == restaurant.category }
+    private var dishesForRestaurant: [Dish] {
+        allDishes.filter { $0.category.lowercased().contains(restaurant.category.lowercased()) }
     }
 
     var body: some View {
-        List {
-            Section("Menu") {
-                ForEach(dishes) { d in
+        ScrollView {
+            VStack(spacing: 12) {
+                ForEach(dishesForRestaurant) { dish in
                     NavigationLink {
-                        DishDetailView(dish: d)
+                        DishDetailView(dish: dish)
                     } label: {
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text(d.title).font(.headline)
-                            Text(d.description)
-                                .lineLimit(2)
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                            Text("\(d.price, specifier: "%.2f") $")
-                                .font(.subheadline)
-                        }
-                        .padding(.vertical, 6)
+                        FoodCard(
+                            title: dish.title,
+                            subtitle: restaurant.name,
+                            price: "\(String(format: "%.2f", dish.price)) $",
+                            imageURL: dish.thumbnail,
+                            ratingText: "\(String(format: "%.1f", dish.rating))",
+                            isFavorite: false,
+                            onToggleFavorite: {},
+                            onAdd: {}
+                        )
                     }
+                    .buttonStyle(.plain)
                 }
             }
+            .padding()
         }
+        .background(UITheme.bg)
         .navigationTitle(restaurant.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

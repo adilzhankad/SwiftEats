@@ -10,7 +10,9 @@ struct DishDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             Text(dish.title).font(.title2).bold()
-            Text(dish.description).foregroundStyle(.secondary)
+            Text("No description available")
+                .foregroundStyle(.secondary)
+
 
             Toggle("Spicy", isOn: $spicy)
             Stepper("Quantity: \(quantity)", value: $quantity, in: 1...20)

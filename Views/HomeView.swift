@@ -2,60 +2,104 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject private var vm = HomeViewModel()
+    @EnvironmentObject var cartVM: CartViewModel
+    @State private var searchText = ""
+    @State private var selectedCategory: CategoryChip = .popular
 
     var body: some View {
         NavigationStack {
-            Group {
-                if vm.isLoading {
-                    ProgressView("Loading…")
-                } else if let err = vm.errorMessage {
-                    VStack(spacing: 12) {
-                        Text("Error").font(.headline)
-                        Text(err).multilineTextAlignment(.center)
-                        Button("Retry") {
-                            Task { await vm.load() }
-                        }
-                    }
-                    .padding()
-                } else {
-                    List(vm.restaurants) { r in
-                        NavigationLink(value: r) {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(r.name).font(.headline)
-                                    Text("⭐️ \(String(format: "%.1f", r.rating)) • \(r.deliveryTime) min")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.secondary)
+            ScrollView {
+                VStack(spacing: 16) {
+                    header
+
+                    SearchBar(text: $searchText)
+
+                    PromoBanner(
+                        titleTop: "Free Delivery",
+                        title: "Hungry? We got you.\nOrder now",
+                        buttonTitle: "Order Now",
+                        onTap: {}
+                    )
+
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 10) {
+                            ForEach(CategoryChip.allCases) { chip in
+                                CategoryChipView(
+                                    chip: chip,
+                                    isSelected: chip == selectedCategory
+                                ) {
+                                    withAnimation(.spring(response: 0.25, dampingFraction: 0.9)) {
+                                        selectedCategory = chip
+                                    }
                                 }
-                                Spacer()
                             }
-                            .padding(.vertical, 6)
+                        }
+                        .padding(.horizontal, 2)
+                    }
+
+                    VStack(spacing: 12) {
+                        ForEach(vm.filteredDishes(search: searchText, category: selectedCategory)) { dish in
+                            NavigationLink {
+                                DishDetailView(dish: dish)
+                            } label: {
+                                FoodCard(
+                                    title: dish.title,
+                                    subtitle: dish.category.capitalized,
+                                    price: String(format: "%.2f $", dish.price),
+                                    imageURL: dish.thumbnail,
+                                    ratingText: String(format: "%.1f", dish.rating),
+                                    isFavorite: vm.isFavorite(dish),
+                                    onToggleFavorite: {
+                                        withAnimation(.spring(response: 0.25, dampingFraction: 0.9)) {
+                                            vm.toggleFavorite(dish)
+                                        }
+                                    },
+                                    onAdd: {
+                                        withAnimation(.spring(response: 0.25, dampingFraction: 0.9)) {
+                                            cartVM.add(dish: dish)
+                                        }
+                                    }
+                                )
+
+                            }
+                            .buttonStyle(.plain)
                         }
                     }
-                    .listStyle(.plain)
+                }
+                .padding()
+            }
+            .background(UITheme.bg)
+            .navigationBarHidden(true)
+        }
+        .task { vm.load() }
+    }
+
+    private var header: some View {
+        HStack(alignment: .top) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Delivering to")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                HStack(spacing: 6) {
+                    Text("Home")
+                        .font(.title3.weight(.bold))
+                    Image(systemName: "chevron.down")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
                 }
             }
-            .navigationTitle("Restaurants")
-            .searchable(text: $vm.searchText)
-            .onChange(of: vm.searchText) { _, _ in vm.applySortAndFilter() }
-            .toolbar {
-                Menu {
-                    Picker("Sort", selection: $vm.sortMode) {
-                        ForEach(HomeViewModel.SortMode.allCases) { mode in
-                            Text(mode.rawValue).tag(mode)
-                        }
-                    }
-                    .onChange(of: vm.sortMode) { _, _ in vm.applySortAndFilter() }
-                } label: {
-                    Image(systemName: "arrow.up.arrow.down")
-                }
+            Spacer()
+            Button {
+            } label: {
+                Image(systemName: "bell")
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                    .frame(width: 40, height: 40)
+                    .background(UITheme.card)
+                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+                    .shadow(color: UITheme.shadow, radius: 14, y: 8)
             }
-            .navigationDestination(for: Restaurant.self) { r in
-                RestaurantMenuView(restaurant: r, allDishes: vm.dishes)
-            }
-            .task {
-                if vm.dishes.isEmpty { await vm.load() }
-            }
+            .buttonStyle(.plain)
         }
     }
 }
