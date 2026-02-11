@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  SwiftEats
 //
-//  Created by Adilzhan Kadyrov on 06.02.2026.
+//  Created by Adilzhan Kadyrov on 04.02.2026.
 //
 
 import SwiftUI

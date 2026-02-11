@@ -16,15 +16,36 @@ final class OrdersViewModel: ObservableObject {
     }
 
     func placeOrder(items: [CartItem], total: Double) {
+        _ = placeOrder(items: items, total: total, status: .preparing)
+    }
+
+    @discardableResult
+    func placeOrder(items: [CartItem], total: Double, status: Order.Status) -> UUID {
+        let id = UUID()
         let order = Order(
-            id: UUID(),
+            id: id,
             items: items,
             total: total,
             createdAt: Date(),
-            status: .preparing
+            status: status
         )
 
         orders.insert(order, at: 0)
+        persist()
+        return id
+    }
+
+    func setStatus(orderId: UUID, status: Order.Status) {
+        guard let idx = orders.firstIndex(where: { $0.id == orderId }) else { return }
+
+        let existing = orders[idx]
+        orders[idx] = Order(
+            id: existing.id,
+            items: existing.items,
+            total: existing.total,
+            createdAt: existing.createdAt,
+            status: status
+        )
         persist()
     }
 

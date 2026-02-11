@@ -8,7 +8,7 @@ struct SwiftEatsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RootTabView()
+            AppRootView()
                 .environmentObject(cartVM)
                 .environmentObject(ordersVM)
                 .preferredColorScheme(isDarkMode ? .dark : .light)

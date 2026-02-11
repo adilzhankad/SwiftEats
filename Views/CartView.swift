@@ -2,6 +2,10 @@ import SwiftUI
 
 struct CartView: View {
     @EnvironmentObject var cartVM: CartViewModel
+    @EnvironmentObject var ordersVM: OrdersViewModel
+    @State private var isPlacingOrder: Bool = false
+    @State private var courierProgress: CGFloat = 0
+    @State private var isDelivered: Bool = false
 
     var body: some View {
         NavigationStack {
@@ -44,6 +48,18 @@ struct CartView: View {
                                 isEmphasized: true
                             )
                         }
+
+                        Section {
+                            Button {
+                                Task { await placeOrderFlow() }
+                            } label: {
+                                Text("Make order")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(UITheme.primary)
+                            .disabled(isPlacingOrder)
+                        }
                     }
                 }
             }
@@ -56,6 +72,43 @@ struct CartView: View {
                     }
                 }
             }
+        }
+        .overlay {
+            if isPlacingOrder {
+                CourierOverlay(progress: courierProgress, isDelivered: isDelivered)
+                    .transition(.opacity)
+            }
+        }
+    }
+
+    private func placeOrderFlow() async {
+        guard !cartVM.items.isEmpty else { return }
+
+        isPlacingOrder = true
+        isDelivered = false
+        courierProgress = 0
+
+        let orderId = ordersVM.placeOrder(items: cartVM.items, total: cartVM.total, status: .preparing)
+        ordersVM.setStatus(orderId: orderId, status: .onTheWay)
+
+        await MainActor.run {
+            withAnimation(.linear(duration: 30)) {
+                courierProgress = 1
+            }
+        }
+
+        try? await Task.sleep(nanoseconds: 30_000_000_000)
+
+        ordersVM.setStatus(orderId: orderId, status: .delivered)
+        await MainActor.run {
+            isDelivered = true
+        }
+
+        try? await Task.sleep(nanoseconds: 1_000_000_000)
+
+        await MainActor.run {
+            withAnimation { cartVM.removeAll() }
+            isPlacingOrder = false
         }
     }
 
@@ -99,6 +152,48 @@ struct CartView: View {
             Spacer()
             Text(value)
                 .font(isEmphasized ? .headline : .body)
+        }
+    }
+}
+
+private struct CourierOverlay: View {
+    let progress: CGFloat
+    let isDelivered: Bool
+
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.25)
+                .ignoresSafeArea()
+
+            VStack(spacing: 16) {
+                Text(isDelivered ? "Delivered" : "Courier is on the way")
+                    .font(.title3.weight(.semibold))
+                    .foregroundStyle(.primary)
+
+                GeometryReader { geo in
+                    let width = geo.size.width
+                    let x = (1 - progress) * width
+
+                    ZStack(alignment: .leading) {
+                        RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            .fill(Color.black.opacity(0.06))
+                            .frame(height: 64)
+
+                        Image(systemName: isDelivered ? "checkmark.circle.fill" : "bicycle")
+                            .font(.system(size: 30, weight: .semibold))
+                            .foregroundStyle(isDelivered ? .green : UITheme.primary)
+                            .offset(x: max(0, min(width - 44, x)) + 14)
+                    }
+                }
+                .frame(height: 64)
+                .padding(.horizontal)
+            }
+            .padding(20)
+            .frame(maxWidth: 420)
+            .background(UITheme.card)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .shadow(color: UITheme.shadow, radius: 22, y: 12)
+            .padding()
         }
     }
 }

@@ -3,15 +3,32 @@ import SwiftUI
 @MainActor
 final class HomeViewModel: ObservableObject {
     @Published var dishes: [Dish] = []
-    @Published var favoriteIds: Set<Int> = []
+    @Published var favoriteDishIds: Set<String> = []
 
-    private let favoritesKey = "favorite_dish_ids_v1"
+    private let dishesAPI = DishesAPI()
+    private let favoritesAPI = FavoritesAPI()
+    private var remoteIdByLocalId: [Int: String] = [:]
 
     func load() {
         Task {
             do {
-                dishes = try await APIService.shared.fetchDishes()
-                loadFavorites()
+                let remote = try await dishesAPI.list()
+                var map: [Int: String] = [:]
+                dishes = remote.compactMap { dto in
+                    let id = Int(dto.id) ?? abs(dto.id.hashValue)
+                    map[id] = dto.id
+                    return Dish(
+                        id: id,
+                        title: dto.title,
+                        price: dto.price,
+                        thumbnail: dto.image_url,
+                        category: dto.category,
+                        description: dto.description,
+                        rating: dto.rating
+                    )
+                }
+                remoteIdByLocalId = map
+                await loadFavoritesFromBackendIfPossible()
             } catch {
                 print(error)
             }
@@ -40,37 +57,54 @@ final class HomeViewModel: ObservableObject {
     }
 
     func isFavorite(_ dish: Dish) -> Bool {
-        favoriteIds.contains(dish.id)
+        guard let remoteId = remoteIdByLocalId[dish.id] else { return false }
+        return favoriteDishIds.contains(remoteId)
     }
 
     func toggleFavorite(_ dish: Dish) {
-        if favoriteIds.contains(dish.id) {
-            favoriteIds.remove(dish.id)
+        guard let remoteId = remoteIdByLocalId[dish.id] else { return }
+
+        let willBeFavorite = !favoriteDishIds.contains(remoteId)
+        if willBeFavorite {
+            favoriteDishIds.insert(remoteId)
         } else {
-            favoriteIds.insert(dish.id)
+            favoriteDishIds.remove(remoteId)
         }
-        saveFavorites()
+
+        NotificationCenter.default.post(name: .favoritesDidChange, object: nil)
+
+        Task {
+            do {
+                if willBeFavorite {
+                    try await favoritesAPI.toggle(dishId: remoteId)
+                } else {
+                    try await favoritesAPI.remove(dishId: remoteId)
+                }
+            } catch {
+                // Rollback optimistic update
+                if willBeFavorite {
+                    favoriteDishIds.remove(remoteId)
+                } else {
+                    favoriteDishIds.insert(remoteId)
+                }
+                NotificationCenter.default.post(name: .favoritesDidChange, object: nil)
+                print(error)
+            }
+        }
     }
 
-    private func loadFavorites() {
-        guard let data = UserDefaults.standard.data(forKey: favoritesKey) else {
-            favoriteIds = []
-            return
-        }
+    private func loadFavoritesFromBackendIfPossible() async {
         do {
-            let ids = try JSONDecoder().decode([Int].self, from: data)
-            favoriteIds = Set(ids)
+            let fav = try await favoritesAPI.get()
+            favoriteDishIds = Set(fav.dish_ids)
+        } catch let error as NetworkError {
+            if case .unauthorized = error {
+                favoriteDishIds = []
+                return
+            }
+            print(error)
         } catch {
-            favoriteIds = []
-        }
-    }
-
-    private func saveFavorites() {
-        do {
-            let data = try JSONEncoder().encode(Array(favoriteIds))
-            UserDefaults.standard.set(data, forKey: favoritesKey)
-        } catch {
-            print("Favorites save error:", error)
+            print(error)
         }
     }
 }

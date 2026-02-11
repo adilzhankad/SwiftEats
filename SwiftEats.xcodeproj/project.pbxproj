@@ -43,6 +43,34 @@
 		70B088D22F38B3F7006F6B11 /* FoodCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D12F38B3F7006F6B11 /* FoodCard.swift */; };
 		70B088D42F38B401006F6B11 /* Badge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D32F38B401006F6B11 /* Badge.swift */; };
 		70B088D72F38B419006F6B11 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B088D62F38B419006F6B11 /* Color+Hex.swift */; };
+		A00001012F3D000000000001 /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000022F3D000000000001 /* APIConfig.swift */; };
+		A00001022F3D000000000001 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000042F3D000000000001 /* NetworkError.swift */; };
+		A00001032F3D000000000001 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000062F3D000000000001 /* TokenManager.swift */; };
+		A00001042F3D000000000001 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000082F3D000000000001 /* APIClient.swift */; };
+		A00001052F3D000000000001 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000A2F3D000000000001 /* AuthAPI.swift */; };
+		A00001062F3D000000000001 /* DishesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000C2F3D000000000001 /* DishesAPI.swift */; };
+		A00001072F3D000000000001 /* CategoriesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000000E2F3D000000000001 /* CategoriesAPI.swift */; };
+		A00001082F3D000000000001 /* FavoritesAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000102F3D000000000001 /* FavoritesAPI.swift */; };
+		A00001092F3D000000000001 /* CartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000122F3D000000000001 /* CartAPI.swift */; };
+		A000010A2F3D000000000001 /* OrdersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000142F3D000000000001 /* OrdersAPI.swift */; };
+		A000010B2F3D000000000001 /* AuthModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000162F3D000000000001 /* AuthModels.swift */; };
+		A000010C2F3D000000000001 /* DishesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000182F3D000000000001 /* DishesModels.swift */; };
+		A000010D2F3D000000000001 /* CategoriesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000001A2F3D000000000001 /* CategoriesModels.swift */; };
+		A000010E2F3D000000000001 /* FavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000001C2F3D000000000001 /* FavoritesModels.swift */; };
+		A000010F2F3D000000000001 /* CartModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000001E2F3D000000000001 /* CartModels.swift */; };
+		A00001102F3D000000000001 /* OrdersModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000202F3D000000000001 /* OrdersModels.swift */; };
+		A00001112F3D000000000001 /* SessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000222F3D000000000001 /* SessionViewModel.swift */; };
+		A00001122F3D000000000001 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000242F3D000000000001 /* LoginViewModel.swift */; };
+		A00001132F3D000000000001 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000262F3D000000000001 /* RegisterViewModel.swift */; };
+		A00001142F3D000000000001 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000282F3D000000000001 /* ProfileViewModel.swift */; };
+		A00001152F3D000000000001 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002A2F3D000000000001 /* FavoritesViewModel.swift */; };
+		A00001162F3D000000000001 /* DishDetailRemoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C2F3D000000000001 /* DishDetailRemoteViewModel.swift */; };
+		A00001172F3D000000000001 /* AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002E2F3D000000000001 /* AppRootView.swift */; };
+		A00001182F3D000000000001 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000302F3D000000000001 /* LoginView.swift */; };
+		A00001192F3D000000000001 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000322F3D000000000001 /* RegisterView.swift */; };
+		A000011A2F3D000000000001 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000342F3D000000000001 /* ProfileView.swift */; };
+		A000011B2F3D000000000001 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000362F3D000000000001 /* FavoritesView.swift */; };
+		A000011C2F3D000000000001 /* DishDetailRemoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000382F3D000000000001 /* DishDetailRemoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +130,34 @@
 		70B088D12F38B3F7006F6B11 /* FoodCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCard.swift; sourceTree = "<group>"; };
 		70B088D32F38B401006F6B11 /* Badge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Badge.swift; sourceTree = "<group>"; };
 		70B088D62F38B419006F6B11 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		A00000022F3D000000000001 /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
+		A00000042F3D000000000001 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A00000062F3D000000000001 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		A00000082F3D000000000001 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A000000A2F3D000000000001 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		A000000C2F3D000000000001 /* DishesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesAPI.swift; sourceTree = "<group>"; };
+		A000000E2F3D000000000001 /* CategoriesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAPI.swift; sourceTree = "<group>"; };
+		A00000102F3D000000000001 /* FavoritesAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAPI.swift; sourceTree = "<group>"; };
+		A00000122F3D000000000001 /* CartAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartAPI.swift; sourceTree = "<group>"; };
+		A00000142F3D000000000001 /* OrdersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersAPI.swift; sourceTree = "<group>"; };
+		A00000162F3D000000000001 /* AuthModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModels.swift; sourceTree = "<group>"; };
+		A00000182F3D000000000001 /* DishesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesModels.swift; sourceTree = "<group>"; };
+		A000001A2F3D000000000001 /* CategoriesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModels.swift; sourceTree = "<group>"; };
+		A000001C2F3D000000000001 /* FavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModels.swift; sourceTree = "<group>"; };
+		A000001E2F3D000000000001 /* CartModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModels.swift; sourceTree = "<group>"; };
+		A00000202F3D000000000001 /* OrdersModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersModels.swift; sourceTree = "<group>"; };
+		A00000222F3D000000000001 /* SessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewModel.swift; sourceTree = "<group>"; };
+		A00000242F3D000000000001 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A00000262F3D000000000001 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		A00000282F3D000000000001 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A000002A2F3D000000000001 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		A000002C2F3D000000000001 /* DishDetailRemoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailRemoteViewModel.swift; sourceTree = "<group>"; };
+		A000002E2F3D000000000001 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		A00000302F3D000000000001 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A00000322F3D000000000001 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		A00000342F3D000000000001 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A00000362F3D000000000001 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		A00000382F3D000000000001 /* DishDetailRemoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailRemoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +249,12 @@
 		70901F812F35EFA3006A7205 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A00000162F3D000000000001 /* AuthModels.swift */,
+				A00000182F3D000000000001 /* DishesModels.swift */,
+				A000001A2F3D000000000001 /* CategoriesModels.swift */,
+				A000001C2F3D000000000001 /* FavoritesModels.swift */,
+				A000001E2F3D000000000001 /* CartModels.swift */,
+				A00000202F3D000000000001 /* OrdersModels.swift */,
 				70901F852F35EFE9006A7205 /* Dish.swift */,
 				70901F872F35F00F006A7205 /* Restaurant.swift */,
 				70901F892F35F02D006A7205 /* APIResponses.swift */,
@@ -205,6 +267,16 @@
 		70901F822F35EFB0006A7205 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A00000022F3D000000000001 /* APIConfig.swift */,
+				A00000082F3D000000000001 /* APIClient.swift */,
+				A00000042F3D000000000001 /* NetworkError.swift */,
+				A00000062F3D000000000001 /* TokenManager.swift */,
+				A000000A2F3D000000000001 /* AuthAPI.swift */,
+				A000000C2F3D000000000001 /* DishesAPI.swift */,
+				A000000E2F3D000000000001 /* CategoriesAPI.swift */,
+				A00000102F3D000000000001 /* FavoritesAPI.swift */,
+				A00000122F3D000000000001 /* CartAPI.swift */,
+				A00000142F3D000000000001 /* OrdersAPI.swift */,
 				70901F8B2F35F052006A7205 /* APIError.swift */,
 				70901F912F35F093006A7205 /* APIService.swift */,
 				70901FA32F35F6A1006A7205 /* CartStorage.swift */,
@@ -216,6 +288,12 @@
 		70901F832F35EFC4006A7205 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A00000222F3D000000000001 /* SessionViewModel.swift */,
+				A00000242F3D000000000001 /* LoginViewModel.swift */,
+				A00000262F3D000000000001 /* RegisterViewModel.swift */,
+				A00000282F3D000000000001 /* ProfileViewModel.swift */,
+				A000002A2F3D000000000001 /* FavoritesViewModel.swift */,
+				A000002C2F3D000000000001 /* DishDetailRemoteViewModel.swift */,
 				70901F932F35F0C0006A7205 /* HomeViewModel.swift */,
 				70901FA52F35F6BD006A7205 /* CartViewModel.swift */,
 				70B088BF2F388A64006F6B11 /* CheckoutViewModel.swift */,
@@ -227,6 +305,12 @@
 		70901F842F35EFCE006A7205 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A000002E2F3D000000000001 /* AppRootView.swift */,
+				A00000302F3D000000000001 /* LoginView.swift */,
+				A00000322F3D000000000001 /* RegisterView.swift */,
+				A00000342F3D000000000001 /* ProfileView.swift */,
+				A00000362F3D000000000001 /* FavoritesView.swift */,
+				A00000382F3D000000000001 /* DishDetailRemoteView.swift */,
 				70901F952F35F0E5006A7205 /* RootTabView.swift */,
 				70901F972F35F101006A7205 /* HomeView.swift */,
 				70901F992F35F116006A7205 /* RestaurantMenuView.swift */,
@@ -400,6 +484,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A00001172F3D000000000001 /* AppRootView.swift in Sources */,
+				A000011B2F3D000000000001 /* FavoritesView.swift in Sources */,
+				A000011C2F3D000000000001 /* DishDetailRemoteView.swift in Sources */,
+				A00001182F3D000000000001 /* LoginView.swift in Sources */,
+				A000011A2F3D000000000001 /* ProfileView.swift in Sources */,
+				A00001192F3D000000000001 /* RegisterView.swift in Sources */,
+				A00001112F3D000000000001 /* SessionViewModel.swift in Sources */,
+				A00001152F3D000000000001 /* FavoritesViewModel.swift in Sources */,
+				A00001122F3D000000000001 /* LoginViewModel.swift in Sources */,
+				A00001142F3D000000000001 /* ProfileViewModel.swift in Sources */,
+				A00001132F3D000000000001 /* RegisterViewModel.swift in Sources */,
+				A00001162F3D000000000001 /* DishDetailRemoteViewModel.swift in Sources */,
+				A00001042F3D000000000001 /* APIClient.swift in Sources */,
+				A00001012F3D000000000001 /* APIConfig.swift in Sources */,
+				A00001052F3D000000000001 /* AuthAPI.swift in Sources */,
+				A00001072F3D000000000001 /* CategoriesAPI.swift in Sources */,
+				A00001092F3D000000000001 /* CartAPI.swift in Sources */,
+				A000010D2F3D000000000001 /* CategoriesModels.swift in Sources */,
+				A000010F2F3D000000000001 /* CartModels.swift in Sources */,
+				A00001062F3D000000000001 /* DishesAPI.swift in Sources */,
+				A000010C2F3D000000000001 /* DishesModels.swift in Sources */,
+				A00001082F3D000000000001 /* FavoritesAPI.swift in Sources */,
+				A000010E2F3D000000000001 /* FavoritesModels.swift in Sources */,
+				A00001022F3D000000000001 /* NetworkError.swift in Sources */,
+				A00001102F3D000000000001 /* OrdersModels.swift in Sources */,
+				A000010A2F3D000000000001 /* OrdersAPI.swift in Sources */,
+				A000010B2F3D000000000001 /* AuthModels.swift in Sources */,
+				A00001032F3D000000000001 /* TokenManager.swift in Sources */,
 				70B088C02F388A64006F6B11 /* CheckoutViewModel.swift in Sources */,
 				70B088D42F38B401006F6B11 /* Badge.swift in Sources */,
 				70B088C92F38B3B3006F6B11 /* UITheme.swift in Sources */,
